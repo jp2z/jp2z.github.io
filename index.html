@@ -32,15 +32,26 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             margin-bottom: 30px;
-            padding: 20px;
+            padding: 0; /* تم تغييرها لتناسب الصورة */
             text-align: center;
             transition: transform 0.3s;
+            overflow: hidden; /* تم إضافتها لقص الصورة من الزوايا */
         }
         .card:hover {
             transform: translateY(-10px);
         }
+        .card-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid #ddd;
+        }
+        .card-content {
+            padding: 20px;
+        }
         .card h3 {
             color: #333;
+            margin-top: 0;
         }
         .card p {
             color: #666;
@@ -70,15 +81,21 @@
 
     <div class="container">
         <div class="card">
-            <h3>قالب سيرة ذاتية (CV) حديث</h3>
-            <p>قالب احترافي مناسب للمهندسين والخريجين الجدد، متوافق مع أنظمة التوظيف ATS. جاهز للتعديل على الوورد.</p>
-            <a href="https://drive.google.com/file/d/1WRW6sqFLqNbkf63ppDUYz7nv3j4QgW0d/view?usp=sharing" class="download-btn">تحميل القالب مجاناً</a>
+            <img src="iraq_cv_thumbnail.png" alt="صورة مصغرة لقالب سيرة ذاتية حديث" class="card-image">
+            <div class="card-content">
+                <h3>قالب سيرة ذاتية (CV) حديث</h3>
+                <p>قالب احترافي مناسب للمهندسين والخريجين الجدد، متوافق مع أنظمة التوظيف ATS. جاهز للتعديل على الوورد.</p>
+                <a href="https://drive.google.com/file/d/1eovprym_PYJCpp7bZJYxtQj9gEMtJ7De/view?usp=sharing" class="download-btn">تحميل القالب مجاناً</a>
+            </div>
         </div>
 
         <div class="card">
-            <h3>نموذج معروض رسمي (طلب تعيين)</h3>
-            <p>نموذج كتاب رسمي منسق وجاهز لتقديمه للدوائر الحكومية والوزارات. فقط أضف معلوماتك الشخصية.</p>
-            <a href="#" class="download-btn">تحميل النموذج مجاناً</a>
+            <img src="formal_request_thumbnail.png" alt="صورة مصغرة لنموذج معروض رسمي" class="card-image">
+            <div class="card-content">
+                <h3>نموذج معروض رسمي (طلب تعيين)</h3>
+                <p>نموذج كتاب رسمي منسق وجاهز لتقديمه للدوائر الحكومية والوزارات. فقط أضف معلوماتك الشخصية.</p>
+                <a href="https://drive.google.com/file/d/18fMvA9zB9PD6Agcx6wb8i7sZQifoxmbp/view?usp=sharing" class="download-btn">تحميل النموذج مجاناً</a>
+            </div>
         </div>
     </div>
 
