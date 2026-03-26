@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <title>جاري تحضير الرابط - متجر القوالب</title>
+    </head>
+<body style="text-align: center; padding-top: 50px; font-family: Arial;">
+    <h1>انتظر ثواني.. جاري تجهيز القالب الخاص بك</h1>
+    <div id="countdown" style="font-size: 50px; color: red;">10</div>
+    <p>شكراً لثقتك بمتجر القوالب (The Template Hub)</p>
+
+    <a id="download-btn" href="رابط_ميديا_فاير_هنا" style="display: none; padding: 15px 30px; background: green; color: white; text-decoration: none; border-radius: 5px;">اضغط هنا لتحميل الملف الآن</a>
+
+    <script>
+        var timeleft = 10; // عدد الثواني
+        var downloadTimer = setInterval(function(){
+            if(timeleft <= 0){
+                clearInterval(downloadTimer);
+                document.getElementById("countdown").style.display = "none";
+                document.getElementById("download-btn").style.display = "inline-block";
+            } else {
+                document.getElementById("countdown").innerHTML = timeleft;
+            }
+            timeleft -= 1;
+        }, 1000);
+    </script>
+</body>
+</html>
