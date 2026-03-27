@@ -1061,22 +1061,28 @@
 const themeBtn = document.getElementById('themeToggle');
 const currentTheme = localStorage.getItem('theme');
 
-if (currentTheme === 'light' || (!currentTheme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+// 1. فحص الذاكرة فقط (بدون التدخل بإعدادات جهاز الزائر)
+if (currentTheme === 'light') {
     document.body.classList.add('light-mode');
     if(themeBtn) themeBtn.innerText = '🌙';
+} else {
+    // الوضع الافتراضي للكل هو الليلي الفخم
+    document.body.classList.remove('light-mode');
+    if(themeBtn) themeBtn.innerText = '☀️';
 }
 
+// 2. تشغيل الزر للتبديل السلس
 if(themeBtn) {
     themeBtn.addEventListener('click', () => {
         document.body.classList.toggle('light-mode');
-        let theme = 'dark';
+        
         if (document.body.classList.contains('light-mode')) {
-            theme = 'light';
-            themeBtn.innerText = '🌙';
+            localStorage.setItem('theme', 'light');
+            themeBtn.innerText = '🌙'; // تحول نهار، اظهر زر القمر
         } else {
-            themeBtn.innerText = '☀️';
+            localStorage.setItem('theme', 'dark');
+            themeBtn.innerText = '☀️'; // رجع ليل، اظهر زر الشمس
         }
-        localStorage.setItem('theme', theme);
     });
 }
 // ─── CANVAS PARTICLES ───
