@@ -755,14 +755,16 @@
             width: 100%; 
             padding: 14px 45px 14px 20px; 
             border-radius: 12px;
-            border: 1px solid var(--border-soft); 
-            background: var(--bg-card);
-            color: var(--text-primary); 
+            border: 1px solid var(--border-soft) !important; 
+            background-color: var(--bg-card) !important; /* إجبار المتصفح على اللون المخصص */
+            color: var(--text-primary) !important; 
             font-family: 'Tajawal', sans-serif;
             outline: none; 
             transition: all 0.3s; 
-            text-align: right; /* محاذاة النص لليمين */
-            direction: rtl;   /* اتجاه الكتابة من اليمين لليسار */
+            text-align: right; 
+            direction: rtl;
+            -webkit-appearance: none; /* إلغاء البياض الافتراضي بالآيفون والموبايلات */
+            appearance: none;
         }
         .search-box input:focus { border-color: var(--gold); box-shadow: 0 0 15px rgba(232,184,75,0.15); }
         .search-icon { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-secondary); }
