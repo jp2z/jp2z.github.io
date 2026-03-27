@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+    <!-- Ad & Analytics Scripts (DO NOT REMOVE) -->
     <script>(function(s){s.dataset.zone='10789247',s.src='https://izcle.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     <meta name="monetag" content="7b4084d94912c78fc80862cb527b5bee">
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9W4ZZXWQCB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-9W4ZZXWQCB');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W4ZZXWQCB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9W4ZZXWQCB');
+    </script>
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PV23ZDFK');</script>
-<!-- End Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PV23ZDFK');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Template Hub - متجر القوالب</title>
@@ -26,147 +27,1066 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="keywords" content="سيرة ذاتية, CV, معروض, كتاب رسمي, قوالب جاهزة, تعيينات العراق, وظائف الفلوجة, الانبار, تحميل CV">
     <meta name="google-site-verification" content="IHP8ztgRtWrFOjKY8OdupWzKGfvb2uSeP2iUFOfKtsg" />
     <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --bg-dark: #060b18;
+            --bg-card: #0d1526;
+            --bg-card2: #111d35;
+            --gold: #e8b84b;
+            --gold-light: #f5d07a;
+            --gold-dim: rgba(232, 184, 75, 0.15);
+            --blue-accent: #3b82f6;
+            --green: #22c55e;
+            --text-primary: #f0f4ff;
+            --text-secondary: #8899bb;
+            --border: rgba(232, 184, 75, 0.2);
+            --border-soft: rgba(255,255,255,0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
         }
-        header {
-            background-color: #1a73e8;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+        /* ─── CANVAS BACKGROUND ─── */
+        #bg-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
         }
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 20px;
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
             display: flex;
-            justify-content: space-around;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 40px;
+            background: rgba(6, 11, 24, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-soft);
+            transition: all 0.3s ease;
+        }
+        nav.scrolled {
+            padding: 10px 40px;
+            background: rgba(6, 11, 24, 0.97);
+            box-shadow: 0 4px 40px rgba(0,0,0,0.5);
+        }
+        .nav-logo {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+        .nav-logo span:first-child { color: var(--gold); }
+        .nav-logo span:last-child { color: var(--text-primary); }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-cta {
+            background: var(--gold);
+            color: #060b18;
+            padding: 9px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .nav-cta:hover {
+            background: var(--gold-light);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(232,184,75,0.35);
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold-dim);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 7px 18px;
+            font-size: 13px;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 30px;
+            animation: fadeDown 0.8s ease forwards;
+            opacity: 0;
+        }
+        .hero-badge::before {
+            content: '';
+            width: 8px; height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: pulse 1.5s ease infinite;
+        }
+        @keyframes pulse {
+            0%,100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 78px);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            animation: fadeDown 0.8s 0.1s ease forwards;
+            opacity: 0;
+        }
+        .hero h1 .highlight {
+            position: relative;
+            display: inline-block;
+            color: var(--gold);
+        }
+        .hero h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; right: 0; left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            border-radius: 2px;
+        }
+        .hero p {
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: var(--text-secondary);
+            max-width: 580px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            animation: fadeDown 0.8s 0.2s ease forwards;
+            opacity: 0;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
             flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeDown 0.8s 0.3s ease forwards;
+            opacity: 0;
+        }
+        .btn-primary {
+            background: var(--gold);
+            color: #060b18;
+            padding: 14px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 16px;
+            transition: all 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(232,184,75,0.4);
+        }
+        .btn-secondary {
+            background: var(--border-soft);
+            border: 1px solid var(--border-soft);
+            color: var(--text-primary);
+            padding: 14px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.25s;
+            backdrop-filter: blur(10px);
+        }
+        .btn-secondary:hover {
+            border-color: var(--border);
+            background: var(--gold-dim);
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        /* ─── STATS ─── */
+        .stats-bar {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            background: rgba(13, 21, 38, 0.8);
+            border: 1px solid var(--border-soft);
+            border-radius: 16px;
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+            animation: fadeUp 0.8s 0.5s ease forwards;
+            opacity: 0;
+        }
+        .stat-item {
+            flex: 1;
+            min-width: 160px;
+            padding: 24px 20px;
+            text-align: center;
+            border-left: 1px solid var(--border-soft);
+            position: relative;
+        }
+        .stat-item:last-child { border-left: none; }
+        .stat-number {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--gold);
+            display: block;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* ─── SECTION HEADERS ─── */
+        .section { position: relative; z-index: 1; padding: 80px 20px; }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-tag {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+        .section-title {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+        .section-subtitle {
+            font-size: 17px;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ─── CARDS ─── */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            max-width: 1080px;
+            margin: 0 auto;
         }
         .card {
-            background-color: white;
-            width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            padding: 0; /* تم تغييرها لتناسب الصورة */
-            text-align: center;
-            transition: transform 0.3s;
-            overflow: hidden; /* تم إضافتها لقص الصورة من الزوايا */
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(232,184,75,0.06), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+            z-index: 1;
         }
         .card:hover {
             transform: translateY(-10px);
+            border-color: var(--border);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(232,184,75,0.1);
         }
-        .card-image {
+        .card:hover::before { opacity: 1; }
+
+        .card-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            z-index: 3;
+            background: var(--gold);
+            color: #060b18;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+        }
+        .card-badge.new { background: var(--green); color: white; }
+        .card-badge.popular { background: var(--gold); }
+
+        .card-img-wrap {
+            position: relative;
             width: 100%;
-            height: auto;
+            height: 220px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0d1526, #162040);
+        }
+        .card-img-wrap img {
+            width: 100%; height: 100%;
+            object-fit: cover;
             display: block;
-            border-bottom: 1px solid #ddd;
+            transition: transform 0.5s ease;
         }
-        .card-content {
-            padding: 20px;
+        .card:hover .card-img-wrap img { transform: scale(1.07); }
+        .card-img-placeholder {
+            width: 100%; height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: var(--text-secondary);
         }
-        .card h3 {
-            color: #333;
-            margin-top: 0;
+        .card-img-placeholder .icon {
+            font-size: 48px;
+            opacity: 0.4;
         }
-        .card p {
-            color: #666;
-            font-size: 15px;
+        .card-img-placeholder span {
+            font-size: 13px;
+            opacity: 0.4;
+        }
+        .card-img-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 60px;
+            background: linear-gradient(to top, var(--bg-card), transparent);
+        }
+
+        .card-body { padding: 24px; position: relative; z-index: 2; }
+        .card-category {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .card-title {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.8;
             margin-bottom: 20px;
         }
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 22px;
+        }
+        .tag {
+            background: rgba(59,130,246,0.1);
+            border: 1px solid rgba(59,130,246,0.2);
+            color: #93bbfb;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 50px;
+        }
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-soft);
+        }
+        .card-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        .card-meta-label { font-size: 11px; color: var(--text-secondary); }
+        .card-meta-value { font-size: 13px; font-weight: 700; color: var(--green); }
 
         .btn-download {
-            display: inline-block;
-            background-color: #34a853;
-            color: white;
-            padding: 10px 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold);
+            color: #060b18;
+            padding: 11px 22px;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 14px;
+            transition: all 0.25s;
+            white-space: nowrap;
+        }
+        .btn-download:hover {
+            background: var(--gold-light);
+            transform: scale(1.04);
+            box-shadow: 0 8px 25px rgba(232,184,75,0.35);
+        }
+        .btn-download svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+        /* ─── FEATURES SECTION ─── */
+        .features-section {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            border-color: var(--border);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .feature-icon {
+            width: 52px; height: 52px;
+            background: var(--gold-dim);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 18px;
+        }
+        .feature-title {
+            font-size: 17px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .feature-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
         }
 
-        .btn-download:hover {
-            background-color: #2b8a44;
+        /* ─── HOW IT WORKS ─── */
+        .steps-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
         }
+        .step {
+            display: flex;
+            gap: 28px;
+            align-items: flex-start;
+            position: relative;
+        }
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 25px;
+            top: 60px;
+            width: 2px;
+            height: calc(100% - 20px);
+            background: linear-gradient(to bottom, var(--border), transparent);
+        }
+        .step-num {
+            width: 52px; height: 52px;
+            min-width: 52px;
+            background: var(--gold-dim);
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--gold);
+            position: relative;
+            z-index: 2;
+        }
+        .step-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 14px;
+            padding: 22px 26px;
+            flex: 1;
+            margin-bottom: 20px;
+        }
+        .step-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .step-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ─── CTA BANNER ─── */
+        .cta-banner {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #0d1526, #162040);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -100px; right: -100px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(232,184,75,0.08), transparent 70%);
+            pointer-events: none;
+        }
+        .cta-banner h2 {
+            font-size: clamp(24px, 4vw, 38px);
+            font-weight: 900;
+            margin-bottom: 16px;
+            position: relative;
+        }
+        .cta-banner p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--border-soft);
+            padding: 40px 20px 30px;
+            text-align: center;
+        }
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+        .footer-logo span:first-child { color: var(--gold); }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-copy {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .footer-copy span { color: var(--gold); }
+
+        /* ─── WHATSAPP FLOAT ─── */
         .whatsapp-float {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25d366;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
             color: white;
-            padding: 12px 25px;
+            padding: 14px 24px;
             text-decoration: none;
             border-radius: 50px;
-            font-weight: bold;
-            font-size: 16px;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+            font-weight: 700;
+            font-size: 15px;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
             z-index: 1000;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: floatBtn 3s ease-in-out infinite;
         }
         .whatsapp-float:hover {
-            background-color: #128c7e;
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 14px 40px rgba(37, 211, 102, 0.55);
         }
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 50px;
-            font-size: 14px;
+        @keyframes floatBtn {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── SCROLL TO TOP ─── */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px; height: 48px;
+            background: var(--bg-card2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            transition: all 0.3s;
+            color: var(--gold);
+            font-size: 20px;
+            text-decoration: none;
+        }
+        .scroll-top.show { opacity: 1; }
+        .scroll-top:hover {
+            background: var(--gold-dim);
+            transform: translateY(-3px);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            nav { padding: 14px 20px; }
+            .nav-links { display: none; }
+            .hero { padding: 100px 20px 60px; }
+            .stats-bar { margin: 0 20px 60px; }
+            .stat-item { border-left: none; border-bottom: 1px solid var(--border-soft); }
+            .stat-item:last-child { border-bottom: none; }
+            .step { gap: 16px; }
+            .step:not(:last-child)::after { right: 17px; }
+            .cta-banner { padding: 40px 24px; }
+            .whatsapp-float { bottom: 20px; left: 16px; padding: 12px 18px; font-size: 13px; }
         }
     </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PV23ZDFK"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PV23ZDFK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-    <header>
-        <h1>The Template Hub</h1>
-        <p>متجرك المجاني لتحميل أحدث قوالب السير الذاتية والكتب الرسمية</p>
-    </header>
+<!-- Canvas Background -->
+<canvas id="bg-canvas"></canvas>
 
-    <div class="container">
-        <div class="card">
-            <img src="iraq_cv_thumbnail1.png" alt="صورة مصغرة لقالب سيرة ذاتية حديث" class="card-image">
-            <div class="card-content">
-                <h3>قالب سيرة ذاتية (CV) حديث</h3>
-                <p>قالب احترافي مناسب للمهندسين والخريجين الجدد، متوافق مع أنظمة التوظيف ATS. جاهز للتعديل على الوورد.</p>
-                <a href="download-cv.html" class="btn-download">تحميل القالب مجاناً</a>
+<!-- NAV -->
+<nav id="navbar">
+    <a href="#" class="nav-logo"><span>Template</span><span> Hub</span></a>
+    <ul class="nav-links">
+        <li><a href="#templates">القوالب</a></li>
+        <li><a href="#features">المميزات</a></li>
+        <li><a href="#how">كيف تستخدم</a></li>
+    </ul>
+    <a href="https://wa.me/9647872377488?text=مرحباً،%20أريد%20طلب%20خدمة%20كتابة%20سيرة%20ذاتية%20أو%20معروض." class="nav-cta" target="_blank">💬 اطلب CV خاص</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-badge">✦ قوالب مجانية 100%</div>
+    <h1>ابنِ <span class="highlight">مستقبلك</span><br>بسيرة ذاتية تفتح الأبواب</h1>
+    <p>قوالب احترافية جاهزة للتعديل، مصممة خصيصاً للخريجين الجدد في العراق. حمّل، عدّل، وقدّم طلبك في دقائق.</p>
+    <div class="hero-buttons">
+        <a href="#templates" class="btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+            تحميل القوالب
+        </a>
+        <a href="https://wa.me/9647872377488?text=مرحباً،%20أريد%20طلب%20خدمة%20كتابة%20سيرة%20ذاتية%20أو%20معروض." class="btn-secondary" target="_blank">اطلب تصميم مخصص</a>
+    </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar reveal">
+    <div class="stat-item">
+        <span class="stat-number" data-count="1200">0</span>
+        <span class="stat-label">تحميل شهرياً</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-number" data-count="3">0</span>
+        <span class="stat-label">قالب جاهز</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-number" data-count="100">0</span>
+        <span class="stat-label">% مجاني</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-number" data-count="5">0</span>
+        <span class="stat-label">دقائق للتجهيز</span>
+    </div>
+</div>
+
+<!-- TEMPLATES -->
+<section class="section" id="templates">
+    <div class="section-header reveal">
+        <div class="section-tag">⬡ مكتبة القوالب</div>
+        <h2 class="section-title">اختر القالب المناسب لك</h2>
+        <p class="section-subtitle">كل قوالبنا متوافقة مع نظام ATS وقابلة للتعديل الكامل على Microsoft Word</p>
+    </div>
+    <div class="cards-grid">
+
+        <!-- Card 1: CV -->
+        <div class="card reveal">
+            <div class="card-badge popular">الأكثر تحميلاً</div>
+            <div class="card-img-wrap">
+                <img src="iraq_cv_thumbnail1.png" alt="قالب سيرة ذاتية حديث" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="card-img-placeholder" style="display:none;">
+                    <div class="icon">📄</div>
+                    <span>معاينة القالب</span>
+                </div>
+                <div class="card-img-overlay"></div>
+            </div>
+            <div class="card-body">
+                <div class="card-category">سيرة ذاتية</div>
+                <h3 class="card-title">قالب سيرة ذاتية (CV) حديث</h3>
+                <p class="card-desc">قالب احترافي مناسب للمهندسين والخريجين الجدد، متوافق مع أنظمة التوظيف ATS. جاهز للتعديل على الوورد.</p>
+                <div class="card-tags">
+                    <span class="tag">ATS Compatible</span>
+                    <span class="tag">Word .docx</span>
+                    <span class="tag">عربي</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-meta">
+                        <span class="card-meta-label">السعر</span>
+                        <span class="card-meta-value">مجاني ✓</span>
+                    </div>
+                    <a href="download-cv.html" class="btn-download">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+                        تحميل
+                    </a>
+                </div>
             </div>
         </div>
 
-        <div class="card">
-            <img src="formal_request_thumbnail.png" alt="صورة مصغرة لنموذج معروض رسمي" class="card-image">
-            <div class="card-content">
-                <h3>نموذج معروض رسمي (طلب تعيين)</h3>
-                <p>نموذج كتاب رسمي منسق وجاهز لتقديمه للدوائر الحكومية والوزارات. فقط أضف معلوماتك الشخصية.</p>
-                <a href="download-request.html" class="btn-download">تحميل القالب مجاناً</a>
+        <!-- Card 2: Official Request -->
+        <div class="card reveal" style="transition-delay: 0.1s">
+            <div class="card-badge new" style="background:#22c55e;">رسمي</div>
+            <div class="card-img-wrap">
+                <img src="formal_request_thumbnail.png" alt="نموذج معروض رسمي" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="card-img-placeholder" style="display:none;">
+                    <div class="icon">📋</div>
+                    <span>معاينة القالب</span>
+                </div>
+                <div class="card-img-overlay"></div>
+            </div>
+            <div class="card-body">
+                <div class="card-category">معروض رسمي</div>
+                <h3 class="card-title">نموذج معروض رسمي (طلب تعيين)</h3>
+                <p class="card-desc">نموذج كتاب رسمي منسق وجاهز لتقديمه للدوائر الحكومية والوزارات. فقط أضف معلوماتك الشخصية.</p>
+                <div class="card-tags">
+                    <span class="tag">حكومي</span>
+                    <span class="tag">Word .docx</span>
+                    <span class="tag">رسمي</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-meta">
+                        <span class="card-meta-label">السعر</span>
+                        <span class="card-meta-value">مجاني ✓</span>
+                    </div>
+                    <a href="download-request.html" class="btn-download">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+                        تحميل
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="card">
-            <img src="اسم_الصورة_هنا.png" alt="وصف الصورة" class="card-image">
-            <div class="card-content">
-                <h3>اكتب اسم القالب الجديد هنا</h3>
-                <p>اكتب وصف القالب هنا (مثلاً: قالب عربي وإنجليزي بملف واحد... الخ).</p>
-                <a href="download-template3.html" class="btn-download">تحميل القالب مجاناً</a>
+
+        <!-- Card 3: Template 3 -->
+        <div class="card reveal" style="transition-delay: 0.2s">
+            <div class="card-badge" style="background:#3b82f6; color:white;">قريباً</div>
+            <div class="card-img-wrap">
+                <img src="اسم_الصورة_هنا.png" alt="قالب جديد" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="card-img-placeholder" style="display:none;">
+                    <div class="icon">🆕</div>
+                    <span>قيد الإضافة</span>
+                </div>
+                <div class="card-img-overlay"></div>
+            </div>
+            <div class="card-body">
+                <div class="card-category">قالب جديد</div>
+                <h3 class="card-title">اكتب اسم القالب الجديد هنا</h3>
+                <p class="card-desc">اكتب وصف القالب هنا (مثلاً: قالب عربي وإنجليزي بملف واحد... الخ).</p>
+                <div class="card-tags">
+                    <span class="tag">جديد</span>
+                    <span class="tag">Word .docx</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-meta">
+                        <span class="card-meta-label">السعر</span>
+                        <span class="card-meta-value">مجاني ✓</span>
+                    </div>
+                    <a href="download-template3.html" class="btn-download">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+                        تحميل
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features" style="background: rgba(13,21,38,0.4); backdrop-filter: blur(5px);">
+    <div class="features-section">
+        <div class="section-header reveal">
+            <div class="section-tag">⬡ لماذا نحن</div>
+            <h2 class="section-title">كل ما تحتاجه في مكان واحد</h2>
+            <p class="section-subtitle">قوالب مصممة بعناية لتناسب سوق العمل العراقي</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">جاهز في دقائق</h3>
+                <p class="feature-desc">حمّل القالب، عدّل بياناتك، واطبعه. لا حاجة لمصمم أو خبرة تقنية.</p>
+            </div>
+            <div class="feature-card reveal" style="transition-delay:0.1s">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">متوافق مع ATS</h3>
+                <p class="feature-desc">قوالبنا مصممة لتجتاز أنظمة فلترة السير الذاتية الإلكترونية في الشركات الكبرى.</p>
+            </div>
+            <div class="feature-card reveal" style="transition-delay:0.2s">
+                <div class="feature-icon">🇮🇶</div>
+                <h3 class="feature-title">مخصص للعراق</h3>
+                <p class="feature-desc">نماذج تناسب الدوائر الحكومية والقطاع الخاص في العراق ومتطلباته الخاصة.</p>
+            </div>
+            <div class="feature-card reveal" style="transition-delay:0.3s">
+                <div class="feature-icon">💎</div>
+                <h3 class="feature-title">مجاني تماماً</h3>
+                <p class="feature-desc">جميع القوالب مجانية بالكامل. لا اشتراك، لا بطاقة ائتمانية، لا قيود.</p>
             </div>
         </div>
     </div>
-    <footer>
-        <p>&copy; 2026 جميع الحقوق محفوظة لـ The Template Hub. تم التصميم والبرمجة بكل حب و سرور.</p>
-    </footer>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+    <div class="section-header reveal">
+        <div class="section-tag">⬡ خطوات بسيطة</div>
+        <h2 class="section-title">كيف تحصل على قالبك؟</h2>
+        <p class="section-subtitle">ثلاث خطوات بسيطة وسيرتك الذاتية جاهزة</p>
+    </div>
+    <div class="steps-wrap">
+        <div class="step reveal">
+            <div class="step-num">١</div>
+            <div class="step-content">
+                <h3 class="step-title">اختر القالب المناسب</h3>
+                <p class="step-desc">تصفح مكتبة القوالب واختر النموذج الذي يناسب طبيعة عملك وتخصصك.</p>
+            </div>
+        </div>
+        <div class="step reveal" style="transition-delay:0.1s">
+            <div class="step-num">٢</div>
+            <div class="step-content">
+                <h3 class="step-title">حمّل الملف مجاناً</h3>
+                <p class="step-desc">اضغط على زر التحميل وانتظر ثواني قليلة. الملف بصيغة Word (.docx) سهل التعديل.</p>
+            </div>
+        </div>
+        <div class="step reveal" style="transition-delay:0.2s">
+            <div class="step-num">٣</div>
+            <div class="step-content">
+                <h3 class="step-title">عدّل وقدّم طلبك</h3>
+                <p class="step-desc">أضف بياناتك الشخصية والمهنية، احفظ الملف، وقدّم طلبك بكل ثقة.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="section">
+    <div class="cta-banner reveal">
+        <h2>تريد CV مصمم خصيصاً لك؟ 🚀</h2>
+        <p>فريقنا متاح لتصميم سيرة ذاتية احترافية تعكس مهاراتك وخبراتك بشكل مميز. تواصل معنا الآن!</p>
+        <a href="https://wa.me/9647872377488?text=مرحباً،%20أريد%20طلب%20خدمة%20كتابة%20سيرة%20ذاتية%20أو%20معروض." class="btn-primary" target="_blank">
+            💬 تواصل عبر واتساب
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-logo"><span>Template</span><span style="color:var(--text-primary)"> Hub</span></div>
+    <div class="footer-links">
+        <a href="#templates">القوالب</a>
+        <a href="#features">المميزات</a>
+        <a href="#how">كيف تستخدم</a>
+        <a href="https://wa.me/9647872377488" target="_blank">تواصل معنا</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 جميع الحقوق محفوظة لـ <span>The Template Hub</span> · صُنع بكل حب 🤍</p>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/9647872377488?text=مرحباً،%20أريد%20طلب%20خدمة%20كتابة%20سيرة%20ذاتية%20أو%20معروض." class="whatsapp-float" target="_blank">
-        💬 اطلب تصميم CV خاص
-    </a>
-    <script src="https://pl28980512.profitablecpmratenetwork.com/0e/04/00/0e040030332455c33b430afba4ed4bf3.js"></script>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    اطلب CV خاص
+</a>
+
+<!-- SCROLL TO TOP -->
+<a href="#" class="scroll-top" id="scrollTop">↑</a>
+
+<!-- Ad Script -->
+<script src="https://pl28980512.profitablecpmratenetwork.com/0e/04/00/0e040030332455c33b430afba4ed4bf3.js"></script>
+
+<script>
+// ─── CANVAS PARTICLES ───
+(function() {
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+
+    function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    for (let i = 0; i < 60; i++) {
+        particles.push({
+            x: Math.random() * 1920,
+            y: Math.random() * 1080,
+            r: Math.random() * 1.5 + 0.3,
+            dx: (Math.random() - 0.5) * 0.3,
+            dy: (Math.random() - 0.5) * 0.3,
+            o: Math.random() * 0.4 + 0.1
+        });
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+        // Gradient overlay
+        const grd = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, W * 0.8);
+        grd.addColorStop(0, 'rgba(232,184,75,0.03)');
+        grd.addColorStop(1, 'transparent');
+        ctx.fillStyle = grd;
+        ctx.fillRect(0, 0, W, H);
+
+        particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(232,184,75,${p.o})`;
+            ctx.fill();
+            p.x += p.dx; p.y += p.dy;
+            if (p.x < 0) p.x = W;
+            if (p.x > W) p.x = 0;
+            if (p.y < 0) p.y = H;
+            if (p.y > H) p.y = 0;
+        });
+
+        // Connect nearby particles
+        particles.forEach((a, i) => {
+            particles.slice(i + 1).forEach(b => {
+                const dist = Math.hypot(a.x - b.x, a.y - b.y);
+                if (dist < 120) {
+                    ctx.beginPath();
+                    ctx.moveTo(a.x, a.y);
+                    ctx.lineTo(b.x, b.y);
+                    ctx.strokeStyle = `rgba(232,184,75,${0.06 * (1 - dist / 120)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            });
+        });
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+
+// ─── NAVBAR SCROLL ───
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 400);
+});
+
+// ─── REVEAL ON SCROLL ───
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ─── COUNTER ANIMATION ───
+function animateCounter(el) {
+    const target = +el.dataset.count;
+    const suffix = el.textContent.includes('%') ? '%' : (target > 100 ? '+' : '');
+    let current = 0;
+    const step = target / 60;
+    const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+            el.textContent = target + suffix;
+            clearInterval(timer);
+        } else {
+            el.textContent = Math.floor(current) + suffix;
+        }
+    }, 25);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.querySelectorAll('[data-count]').forEach(animateCounter);
+            counterObserver.unobserve(e.target);
+        }
+    });
+}, { threshold: 0.5 });
+const statsBar = document.querySelector('.stats-bar');
+if (statsBar) counterObserver.observe(statsBar);
+</script>
+<script src="https://pl28980512.profitablecpmratenetwork.com/0e/04/00/0e040030332455c33b430afba4ed4bf3.js"></script>
 </body>
 </html>
