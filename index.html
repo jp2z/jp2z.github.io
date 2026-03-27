@@ -794,6 +794,27 @@
             font-weight: 600; transition: all 0.3s; font-family: 'Tajawal', sans-serif;
         }
         .filter-btn:hover, .filter-btn.active { background: var(--gold-dim); border-color: var(--gold); color: var(--gold); }
+        /* ─── رسالة مكافحة مانع الإعلانات ─── */
+        #adblock-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(6, 11, 24, 0.95); z-index: 999999;
+            display: none; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 20px; backdrop-filter: blur(15px);
+        }
+        .adblock-box {
+            background: var(--bg-card); border: 1px solid var(--gold); border-radius: 20px;
+            padding: 40px 30px; max-width: 450px;
+            box-shadow: 0 20px 50px rgba(232, 184, 75, 0.15);
+            animation: fadeUp 0.5s ease forwards;
+        }
+        .adblock-box h2 { color: #ef4444; margin-bottom: 15px; font-size: 24px; font-weight: 900;}
+        .adblock-box p { color: var(--text-primary); margin-bottom: 25px; line-height: 1.7; font-size: 16px;}
+        .adblock-btn {
+            background: var(--gold); color: #000; padding: 14px 25px; border-radius: 10px;
+            text-decoration: none; font-weight: 800; font-size: 16px; display: inline-block; cursor: pointer;
+            border: none; transition: transform 0.3s; font-family: 'Tajawal', sans-serif;
+        }
+        .adblock-btn:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
@@ -1239,5 +1260,23 @@ function filterCategory(category) {
 }
 </script>   
 <script src="https://pl28980512.profitablecpmratenetwork.com/0e/04/00/0e040030332455c33b430afba4ed4bf3.js"></script>
+    // ─── كشف مانع الإعلانات (Anti-Adblock) ───
+setTimeout(function() {
+    // نصنع عنصر وهمي يحمل كلاسات يكرهها مانع الإعلانات
+    var testAd = document.createElement('div');
+    testAd.innerHTML = '&nbsp;';
+    testAd.className = 'adsbox ad-placement ad-banner';
+    testAd.style.height = '1px'; testAd.style.width = '1px';
+    document.body.appendChild(testAd);
+
+    setTimeout(function() {
+        // إذا مانع الإعلانات أخفى العنصر، معناها الزائر مشغله
+        if (testAd.offsetHeight === 0) {
+            document.getElementById('adblock-overlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // نمنعه ينزل يقرا الموقع
+        }
+        testAd.remove();
+    }, 300);
+}, 2000); // الفحص يصير بعد ثانيتين من فتح الموقع
 </body>
 </html>
