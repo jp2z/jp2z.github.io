@@ -751,21 +751,31 @@
             display: flex; flex-direction: column; gap: 20px; align-items: center;
         }
         .search-box { position: relative; width: 100%; max-width: 500px; }
-        .search-box input {
-            width: 100%; 
-            padding: 14px 45px 14px 20px; 
-            border-radius: 12px;
+        /* ─── إجبار المتصفح على تلوين مربع البحث ─── */
+        #templateSearch {
+            width: 100% !important; 
+            padding: 14px 45px 14px 20px !important; 
+            border-radius: 12px !important;
             border: 1px solid var(--border-soft) !important; 
             background-color: var(--bg-card) !important; 
             color: var(--text-primary) !important; 
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Tajawal', sans-serif !important;
             outline: none !important; 
             box-shadow: none !important;
-            transition: all 0.3s; 
-            text-align: right; 
-            direction: rtl;
-            -webkit-appearance: none;
-            appearance: none;
+            transition: all 0.3s !important; 
+            text-align: right !important; 
+            direction: rtl !important;
+            -webkit-appearance: none !important;
+            appearance: none !important;
+        }
+
+        #templateSearch:-webkit-autofill,
+        #templateSearch:-webkit-autofill:hover, 
+        #templateSearch:-webkit-autofill:focus, 
+        #templateSearch:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px var(--bg-card) inset !important;
+            -webkit-text-fill-color: var(--text-primary) !important;
+            transition: background-color 5000s ease-in-out 0s !important;
         }
 
         /* منع متصفحات الكمبيوتر من تلوين المربع بالأبيض أو الأصفر */
