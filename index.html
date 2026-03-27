@@ -34,34 +34,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 
     <style>
-        :root 
-        /* ─── LIGHT MODE VARIABLES ─── */
-        body.light-mode {
-            --bg-dark: #f4f7f9;
-            --bg-card: #ffffff;
-            --bg-card2: #e2e8f0;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --border-soft: rgba(0,0,0,0.08);
-            --border: rgba(232, 184, 75, 0.4);
-        }
-        body.light-mode nav.scrolled { background: rgba(255, 255, 255, 0.95); }
-        body.light-mode .hero-badge { background: #ffffff; }
-        
-        /* ─── زر التبديل ─── */
-        .theme-toggle {
-            background: transparent;
-            border: 1px solid var(--border-soft);
-            color: var(--text-primary);
-            font-size: 18px;
-            cursor: pointer;
-            padding: 6px 12px;
-            border-radius: 8px;
-            margin-right: 15px;
-            transition: all 0.3s;
-        }
-        .theme-toggle:hover { background: var(--gold-dim); border-color: var(--gold); }
-        {
+        :root {
             --bg-dark: #060b18;
             --bg-card: #0d1526;
             --bg-card2: #111d35;
@@ -75,8 +48,42 @@
             --border: rgba(232, 184, 75, 0.2);
             --border-soft: rgba(255,255,255,0.06);
         }
+        
+        /* ─── LIGHT MODE VARIABLES ─── */
+        body.light-mode {
+            --bg-dark: #f4f7f9 !important;
+            --bg-card: #ffffff !important;
+            --bg-card2: #e2e8f0 !important;
+            --text-primary: #0f172a !important;
+            --text-secondary: #475569 !important;
+            --border-soft: rgba(0,0,0,0.08) !important;
+            --border: rgba(232, 184, 75, 0.4) !important;
+        }
+        body.light-mode nav { background: rgba(255, 255, 255, 0.9) !important; }
+        body.light-mode nav.scrolled { background: rgba(255, 255, 255, 0.98) !important; box-shadow: 0 4px 30px rgba(0,0,0,0.08) !important; }
+        body.light-mode .hero-badge { background: #ffffff !important; }
+        body.light-mode .stats-bar { background: rgba(255, 255, 255, 0.8) !important; }
+        body.light-mode .btn-secondary { background: #ffffff !important; border-color: var(--border-soft) !important; }
+        body.light-mode .card-img-wrap { background: linear-gradient(135deg, #e2e8f0, #cbd5e1) !important; }
+        body.light-mode #features { background: rgba(244, 247, 249, 0.8) !important; }
+        body.light-mode .feature-card, 
+        body.light-mode .step-content { background: #ffffff !important; border-color: rgba(0,0,0,0.08) !important; }
+        body.light-mode .cta-banner { background: linear-gradient(135deg, #ffffff, #f4f7f9) !important; border-color: rgba(0,0,0,0.08) !important; }
+        body.light-mode input#templateSearch { background-color: #ffffff !important; color: #000000 !important; border-color: rgba(0,0,0,0.2) !important; color-scheme: light !important; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* ─── زر التبديل ─── */
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border-soft);
+            color: var(--text-primary);
+            font-size: 18px;
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 8px;
+            margin-right: 15px;
+            transition: all 0.3s;
+        }
+        .theme-toggle:hover { background: var(--gold-dim); border-color: var(--gold); }        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         html { scroll-behavior: smooth; }
 
@@ -751,39 +758,32 @@
             display: flex; flex-direction: column; gap: 20px; align-items: center;
         }
         /* ─── إجبار المتصفح على تلوين مربع البحث ─── */
-        #templateSearch {
+        input#templateSearch {
+            background-color: #0d1526 !important; 
+            color: #f0f4ff !important; 
+            border: 1px solid rgba(255,255,255,0.1) !important;
             width: 100% !important; 
             padding: 14px 45px 14px 20px !important; 
             border-radius: 12px !important;
-            border: 1px solid var(--border-soft) !important; 
-            background-color: var(--bg-card) !important; 
-            color: var(--text-primary) !important; 
             font-family: 'Tajawal', sans-serif !important;
             outline: none !important; 
             box-shadow: none !important;
-            transition: all 0.3s !important; 
             text-align: right !important; 
             direction: rtl !important;
-            -webkit-appearance: none !important;
             appearance: none !important;
-        }
-
-        #templateSearch:-webkit-autofill,
-        #templateSearch:-webkit-autofill:hover, 
-        #templateSearch:-webkit-autofill:focus, 
-        #templateSearch:-webkit-autofill:active {
-            -webkit-box-shadow: 0 0 0 30px var(--bg-card) inset !important;
-            -webkit-text-fill-color: var(--text-primary) !important;
-            transition: background-color 5000s ease-in-out 0s !important;
+            -webkit-appearance: none !important;
+            color-scheme: dark !important; 
         }
 
         /* منع متصفحات الكمبيوتر من تلوين المربع بالأبيض أو الأصفر */
-        .search-box input:-webkit-autofill,
-        .search-box input:-webkit-autofill:hover, 
-        .search-box input:-webkit-autofill:focus, 
-        .search-box input:-webkit-autofill:active {
+        input#templateSearch:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 1000px #0d1526 inset !important;
+            -webkit-text-fill-color: #f0f4ff !important;
             transition: background-color 5000s ease-in-out 0s !important;
-            -webkit-text-fill-color: var(--text-primary) !important;
+        }
+        body.light-mode input#templateSearch:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+            -webkit-text-fill-color: #000000 !important;
         }
         .search-box input:focus { border-color: var(--gold); box-shadow: 0 0 15px rgba(232,184,75,0.15); }
         .search-icon { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-secondary); }
@@ -834,7 +834,7 @@
 <!-- STATS -->
 <div class="stats-bar reveal">
     <div class="stat-item">
-        <span class="stat-number" data-count="1200">0</span>
+        <span class="stat-number" data-count="100">0</span>
         <span class="stat-label">تحميل شهرياً</span>
     </div>
     <div class="stat-item">
@@ -860,7 +860,7 @@
     </div>
     <div class="filter-container reveal">
         <div class="search-box">
-            <input type="text" id="templateSearch" placeholder="ابحث عن قالب (مثلاً: سيرة ذاتية، معروض...)" onkeyup="filterTemplates()">
+            <input type="text" id="templateSearch" autocomplete="off" spellcheck="false" data-lpignore="true" placeholder="ابحث عن قالب (مثلاً: سيرة ذاتية، معروض...)" onkeyup="filterTemplates()">
             <span class="search-icon">🔍</span>
         </div>
         <div class="filter-buttons">
