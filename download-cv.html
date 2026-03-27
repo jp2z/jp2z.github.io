@@ -277,6 +277,44 @@
             border-radius: 10px;
         }
         .note strong { color: var(--gold); }
+        /* ─── قوالب ذات صلة ─── */
+        .related-section {
+            margin-top: 40px;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            animation: slideUp 0.8s 0.4s backwards;
+        }
+        .related-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        .related-grid {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .related-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-soft);
+            border-radius: 16px;
+            padding: 16px;
+            width: 280px;
+            text-align: right;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .related-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.06);
+            border-color: var(--gold);
+        }
+        .rc-cat { font-size: 11px; color: var(--gold); margin-bottom: 6px; font-weight: 700; }
+        .rc-title { font-size: 15px; font-weight: 800; margin-bottom: 10px; color: var(--text); }
+        .rc-btn { color: var(--green); font-size: 12px; font-weight: 700; }
     </style>
 </head>
 <body>
@@ -324,7 +362,21 @@
 
         <div class="note"><strong>💡 نصيحة:</strong> هذا الوقت يساعدنا في الاستمرار بتقديم القوالب مجاناً. شكراً لصبرك ودعمك!</div>
     </div>
-
+    <div class="related-section">
+        <h3 class="related-title">قوالب أخرى قد تعجبك 🔥</h3>
+        <div class="related-grid">
+            <a href="download-request.html" class="related-card">
+                <div class="rc-cat">معروض رسمي</div>
+                <div class="rc-title">نموذج معروض رسمي (طلب تعيين)</div>
+                <div class="rc-btn">عرض وتحميل ←</div>
+            </a>
+            <a href="download-template3.html" class="related-card">
+                <div class="rc-cat">قالب جديد</div>
+                <div class="rc-title">قالب احترافي إضافي مجاني</div>
+                <div class="rc-btn">عرض وتحميل ←</div>
+            </a>
+        </div>
+    </div>
     <script>
         const TOTAL = 10;
         let seconds = TOTAL;
