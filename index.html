@@ -718,6 +718,34 @@
             .cta-banner { padding: 40px 24px; }
             .whatsapp-float { bottom: 20px; left: 16px; padding: 12px 18px; font-size: 13px; }
         }
+        /* ─── نظام البحث والفلترة CSS ─── */
+        .filter-container {
+            max-width: 800px; margin: 0 auto 40px;
+            display: flex; flex-direction: column; gap: 20px; align-items: center;
+        }
+        .search-box { position: relative; width: 100%; max-width: 500px; }
+        .search-box input {
+            width: 100%; 
+            padding: 14px 45px 14px 20px; 
+            border-radius: 12px;
+            border: 1px solid var(--border-soft); 
+            background: var(--bg-card);
+            color: var(--text-primary); 
+            font-family: 'Tajawal', sans-serif;
+            outline: none; 
+            transition: all 0.3s; 
+            text-align: right; /* محاذاة النص لليمين */
+            direction: rtl;   /* اتجاه الكتابة من اليمين لليسار */
+        }
+        .search-box input:focus { border-color: var(--gold); box-shadow: 0 0 15px rgba(232,184,75,0.15); }
+        .search-icon { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-secondary); }
+        .filter-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+        .filter-btn {
+            padding: 8px 20px; border-radius: 50px; border: 1px solid var(--border-soft);
+            background: transparent; color: var(--text-secondary); cursor: pointer;
+            font-weight: 600; transition: all 0.3s; font-family: 'Tajawal', sans-serif;
+        }
+        .filter-btn:hover, .filter-btn.active { background: var(--gold-dim); border-color: var(--gold); color: var(--gold); }
     </style>
 </head>
 <body>
@@ -778,6 +806,17 @@
         <div class="section-tag">⬡ مكتبة القوالب</div>
         <h2 class="section-title">اختر القالب المناسب لك</h2>
         <p class="section-subtitle">كل قوالبنا متوافقة مع نظام ATS وقابلة للتعديل الكامل على Microsoft Word</p>
+    </div>
+    <div class="filter-container reveal">
+        <div class="search-box">
+            <input type="text" id="templateSearch" placeholder="ابحث عن قالب (مثلاً: سيرة ذاتية، معروض...)" onkeyup="filterTemplates()">
+            <span class="search-icon">🔍</span>
+        </div>
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterCategory('all')">الكل</button>
+            <button class="filter-btn" onclick="filterCategory('سيرة ذاتية')">سير ذاتية</button>
+            <button class="filter-btn" onclick="filterCategory('معروض رسمي')">معاريض</button>
+        </div>
     </div>
     <div class="cards-grid">
 
@@ -1093,6 +1132,32 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 const statsBar = document.querySelector('.stats-bar');
 if (statsBar) counterObserver.observe(statsBar);
+// وظائف البحث والفلترة
+function filterTemplates() {
+    const input = document.getElementById('templateSearch').value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        const title = card.querySelector('.card-title').innerText.toLowerCase();
+        const desc = card.querySelector('.card-desc').innerText.toLowerCase();
+        // إظهار الكارت إذا كان العنوان أو الوصف يحتوي على النص المكتوب
+        card.style.display = (title.includes(input) || desc.includes(input)) ? "block" : "none";
+    });
+}
+
+function filterCategory(category) {
+    const cards = document.querySelectorAll('.card');
+    const buttons = document.querySelectorAll('.filter-btn');
+    
+    // تحديث الزر النشط
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    // فلترة الكروت حسب الفئة
+    cards.forEach(card => {
+        const cardCat = card.querySelector('.card-category').innerText;
+        card.style.display = (category === 'all' || cardCat.includes(category)) ? "block" : "none";
+    });
+}
 </script>
 <script src="https://pl28980512.profitablecpmratenetwork.com/0e/04/00/0e040030332455c33b430afba4ed4bf3.js"></script>
 </body>
