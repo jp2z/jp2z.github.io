@@ -6,38 +6,348 @@
     <meta name="monetag" content="7b4084d94912c78fc80862cb527b5bee">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جاري تجهيز القالب - متجر القوالب</title>
-    
+    <title>تحميل قالب CV - The Template Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background: #f4f4f4; padding: 50px 20px; }
-        .box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 500px; margin: auto; }
-        #countdown { font-size: 40px; color: #e74c3c; margin: 20px 0; font-weight: bold; }
-        .btn { display: none; padding: 15px 30px; background: #27ae60; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        :root {
+            --bg: #060b18;
+            --card: #0d1526;
+            --gold: #e8b84b;
+            --gold-light: #f5d07a;
+            --gold-dim: rgba(232,184,75,0.12);
+            --text: #f0f4ff;
+            --muted: #8899bb;
+            --green: #22c55e;
+            --border: rgba(232,184,75,0.2);
+            --border-soft: rgba(255,255,255,0.07);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Animated BG */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 50% at 50% 0%, rgba(232,184,75,0.07) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 20% 80%, rgba(59,130,246,0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        /* Nav bar */
+        .topbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(6,11,24,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-soft);
+            z-index: 10;
+        }
+        .topbar-logo {
+            font-size: 18px;
+            font-weight: 900;
+            text-decoration: none;
+        }
+        .topbar-logo span:first-child { color: var(--gold); }
+        .topbar-back {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--muted);
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .topbar-back:hover { color: var(--gold); }
+
+        /* Main card */
+        .box {
+            position: relative;
+            background: var(--card);
+            border: 1px solid var(--border-soft);
+            border-radius: 24px;
+            padding: 48px 44px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+            overflow: hidden;
+            animation: slideUp 0.6s cubic-bezier(0.4,0,0.2,1) forwards;
+        }
+        .box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+            background-size: 200% 100%;
+            animation: shimmer 2s linear infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .doc-icon {
+            width: 80px; height: 80px;
+            background: var(--gold-dim);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            margin: 0 auto 24px;
+            animation: iconPop 0.5s 0.3s cubic-bezier(0.34,1.56,0.64,1) both;
+        }
+        @keyframes iconPop {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(34,197,94,0.12);
+            border: 1px solid rgba(34,197,94,0.3);
+            color: var(--green);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .subtitle {
+            font-size: 15px;
+            color: var(--muted);
+            margin-bottom: 36px;
+            line-height: 1.7;
+        }
+
+        /* Countdown ring */
+        .ring-wrap {
+            position: relative;
+            width: 120px; height: 120px;
+            margin: 0 auto 32px;
+        }
+        .ring-svg {
+            transform: rotate(-90deg);
+            width: 120px; height: 120px;
+        }
+        .ring-bg { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 6; }
+        .ring-fill {
+            fill: none;
+            stroke: var(--gold);
+            stroke-width: 6;
+            stroke-linecap: round;
+            stroke-dasharray: 339.29;
+            stroke-dashoffset: 0;
+            transition: stroke-dashoffset 1s linear;
+            filter: drop-shadow(0 0 6px rgba(232,184,75,0.5));
+        }
+        .ring-text {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .countdown-num {
+            font-size: 38px;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .countdown-label {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        /* Progress steps */
+        .progress-steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+        .pstep {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--border-soft);
+            transition: all 0.5s;
+        }
+        .pstep.active {
+            width: 24px;
+            border-radius: 4px;
+            background: var(--gold);
+            box-shadow: 0 0 10px rgba(232,184,75,0.4);
+        }
+        .pstep.done { background: var(--green); }
+
+        /* Download button */
+        .btn-dl {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 17px 28px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: #060b18;
+            text-decoration: none;
+            border-radius: 14px;
+            font-weight: 900;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 8px 30px rgba(232,184,75,0.3);
+            animation: btnAppear 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;
+        }
+        @keyframes btnAppear {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .btn-dl:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 16px 45px rgba(232,184,75,0.5);
+        }
+        .btn-dl svg { width: 22px; height: 22px; }
+
+        /* Info tags */
+        .info-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 28px;
+        }
+        .itag {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border-soft);
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+        .itag span:first-child { font-size: 14px; }
+
+        .note {
+            margin-top: 24px;
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.7;
+            padding: 14px 16px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-soft);
+            border-radius: 10px;
+        }
+        .note strong { color: var(--gold); }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>لحظة من فضلك..</h1>
-        <p>يتم الآن تجهيز قالب السيرة الذاتية الخاص بك.</p>
-        
-        <div id="countdown">10</div>
+    <div class="topbar">
+        <a href="index.html" class="topbar-logo"><span>Template</span><span style="color:#f0f4ff"> Hub</span></a>
+        <a href="index.html" class="topbar-back">← العودة للرئيسية</a>
+    </div>
 
-        <a id="download-btn" href="رابط_ميديا_فاير_الخاص_بالسيرة_الذاتية" class="btn">اضغط هنا للتحميل الآن</a>
-        
-        <p style="margin-top: 20px; color: #7f8c8d;">شكراً لانتظارك، هذا الوقت يساعدنا في الاستمرار بتقديم الخدمة مجاناً.</p>
+    <div class="box">
+        <div class="doc-icon">📄</div>
+        <div class="badge">✓ قالب سيرة ذاتية</div>
+        <h1>يتم تجهيز ملف CV الخاص بك</h1>
+        <p class="subtitle">انتظر لحظة صغيرة، يتم الآن تحضير رابط التحميل لقالب السيرة الذاتية الاحترافي.</p>
+
+        <div class="info-tags">
+            <div class="itag"><span>📁</span><span>Word .docx</span></div>
+            <div class="itag"><span>🎯</span><span>ATS Compatible</span></div>
+            <div class="itag"><span>🆓</span><span>مجاني</span></div>
+        </div>
+
+        <div class="ring-wrap" id="ring-wrap">
+            <svg class="ring-svg" viewBox="0 0 120 120">
+                <circle class="ring-bg" cx="60" cy="60" r="54"/>
+                <circle class="ring-fill" id="ring-fill" cx="60" cy="60" r="54"/>
+            </svg>
+            <div class="ring-text">
+                <span class="countdown-num" id="countdown">10</span>
+                <span class="countdown-label">ثانية</span>
+            </div>
+        </div>
+
+        <div class="progress-steps" id="steps">
+            <div class="pstep active" id="s1"></div>
+            <div class="pstep" id="s2"></div>
+            <div class="pstep" id="s3"></div>
+        </div>
+
+        <a id="download-btn" href="رابط_ميديا_فاير_الخاص_بالسيرة_الذاتية" class="btn-dl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+            اضغط هنا للتحميل الآن
+        </a>
+
+        <div class="note"><strong>💡 نصيحة:</strong> هذا الوقت يساعدنا في الاستمرار بتقديم القوالب مجاناً. شكراً لصبرك ودعمك!</div>
     </div>
 
     <script>
-        var seconds = 10;
-        var countdown = document.getElementById('countdown');
-        var btn = document.getElementById('download-btn');
-        var timer = setInterval(function() {
+        const TOTAL = 10;
+        let seconds = TOTAL;
+        const countEl = document.getElementById('countdown');
+        const ringFill = document.getElementById('ring-fill');
+        const btn = document.getElementById('download-btn');
+        const ringWrap = document.getElementById('ring-wrap');
+        const CIRCUMFERENCE = 339.29;
+
+        function updateRing(s) {
+            const pct = s / TOTAL;
+            ringFill.style.strokeDashoffset = CIRCUMFERENCE * (1 - pct);
+        }
+        updateRing(1);
+
+        const timer = setInterval(() => {
             seconds--;
-            countdown.innerText = seconds;
+            countEl.textContent = seconds;
+            updateRing(seconds / TOTAL);
+
+            // Update progress steps
+            if (seconds <= 7) { document.getElementById('s1').classList.replace('active','done'); document.getElementById('s2').classList.add('active'); }
+            if (seconds <= 3) { document.getElementById('s2').classList.replace('active','done'); document.getElementById('s3').classList.add('active'); }
+
             if (seconds <= 0) {
                 clearInterval(timer);
-                countdown.style.display = 'none';
-                btn.style.display = 'inline-block';
+                ringWrap.style.display = 'none';
+                document.getElementById('steps').style.display = 'none';
+                btn.style.display = 'flex';
+                document.getElementById('s3').classList.replace('active','done');
             }
         }, 1000);
     </script>
