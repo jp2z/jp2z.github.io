@@ -1057,6 +1057,28 @@
 <script src="https://pl28980512.profitablecpmratenetwork.com/0e/04/00/0e040030332455c33b430afba4ed4bf3.js"></script>
 
 <script>
+    // ─── THEME TOGGLE (الوضع الليلي والنهاري) ───
+const themeBtn = document.getElementById('themeToggle');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme === 'light' || (!currentTheme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+    document.body.classList.add('light-mode');
+    if(themeBtn) themeBtn.innerText = '🌙';
+}
+
+if(themeBtn) {
+    themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        let theme = 'dark';
+        if (document.body.classList.contains('light-mode')) {
+            theme = 'light';
+            themeBtn.innerText = '🌙';
+        } else {
+            themeBtn.innerText = '☀️';
+        }
+        localStorage.setItem('theme', theme);
+    });
+}
 // ─── CANVAS PARTICLES ───
 (function() {
     const canvas = document.getElementById('bg-canvas');
@@ -1188,30 +1210,7 @@ function filterCategory(category) {
         card.style.display = (category === 'all' || cardCat.includes(category)) ? "block" : "none";
     });
 }
-</script>
-    // ─── THEME TOGGLE (الوضع الليلي والنهاري) ───
-const themeBtn = document.getElementById('themeToggle');
-const currentTheme = localStorage.getItem('theme');
-
-// التحقق من تفضيلات النظام أو الذاكرة
-if (currentTheme === 'light' || (!currentTheme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-    document.body.classList.add('light-mode');
-    themeBtn.innerText = '🌙';
-}
-
-// عند الضغط على الزر
-themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    let theme = 'dark';
-    if (document.body.classList.contains('light-mode')) {
-        theme = 'light';
-        themeBtn.innerText = '🌙';
-    } else {
-        themeBtn.innerText = '☀️';
-    }
-    // حفظ الاختيار
-    localStorage.setItem('theme', theme);
-});
+</script>   
 <script src="https://pl28980512.profitablecpmratenetwork.com/0e/04/00/0e040030332455c33b430afba4ed4bf3.js"></script>
 </body>
 </html>
