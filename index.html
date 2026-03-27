@@ -756,15 +756,25 @@
             padding: 14px 45px 14px 20px; 
             border-radius: 12px;
             border: 1px solid var(--border-soft) !important; 
-            background-color: var(--bg-card) !important; /* إجبار المتصفح على اللون المخصص */
+            background-color: var(--bg-card) !important; 
             color: var(--text-primary) !important; 
             font-family: 'Tajawal', sans-serif;
-            outline: none; 
+            outline: none !important; 
+            box-shadow: none !important;
             transition: all 0.3s; 
             text-align: right; 
             direction: rtl;
-            -webkit-appearance: none; /* إلغاء البياض الافتراضي بالآيفون والموبايلات */
+            -webkit-appearance: none;
             appearance: none;
+        }
+
+        /* منع متصفحات الكمبيوتر من تلوين المربع بالأبيض أو الأصفر */
+        .search-box input:-webkit-autofill,
+        .search-box input:-webkit-autofill:hover, 
+        .search-box input:-webkit-autofill:focus, 
+        .search-box input:-webkit-autofill:active {
+            transition: background-color 5000s ease-in-out 0s !important;
+            -webkit-text-fill-color: var(--text-primary) !important;
         }
         .search-box input:focus { border-color: var(--gold); box-shadow: 0 0 15px rgba(232,184,75,0.15); }
         .search-icon { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-secondary); }
