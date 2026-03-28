@@ -13,6 +13,31 @@
     <title>تحميل نموذج المعروض - The Template Hub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- ═══════════════════════════════════════════════════════
+         Schema.org — بيانات المنتج لجوجل ✨
+         ═══════════════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "نموذج معروض رسمي (طلب تعيين)",
+      "description": "نموذج كتاب رسمي منسق وجاهز لتقديمه للدوائر الحكومية والوزارات. فقط أضف معلوماتك الشخصية.",
+      "image": "https://thetemplatehub.com/formal_request_thumbnail.png",
+      "url": "https://thetemplatehub.com/download-request.html",
+      "brand": { "@type": "Brand", "name": "The Template Hub" },
+      "category": "معروض رسمي",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "IQD",
+        "availability": "https://schema.org/InStock",
+        "seller": { "@type": "Organization", "name": "The Template Hub", "url": "https://thetemplatehub.com" }
+      }
+    }
+    </script>
+    <!-- ═══════════════════════════════════════════════════════ -->
+
     <style>
         :root {
             --bg: #060b18;
@@ -51,76 +76,42 @@
             pointer-events: none;
         }
         .topbar {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            padding: 14px 28px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(6,11,24,0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-soft);
-            z-index: 10;
+            position: fixed; top: 0; left: 0; right: 0;
+            padding: 14px 28px; display: flex; align-items: center; justify-content: space-between;
+            background: rgba(6,11,24,0.9); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-soft); z-index: 10;
         }
         .topbar-logo { font-size: 18px; font-weight: 900; text-decoration: none; }
         .topbar-logo span:first-child { color: var(--gold); }
-        .topbar-back {
-            display: flex; align-items: center; gap: 6px;
-            color: var(--muted); font-size: 14px; text-decoration: none; transition: color 0.2s;
-        }
+        .topbar-back { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 14px; text-decoration: none; transition: color 0.2s; }
         .topbar-back:hover { color: var(--gold); }
-
         .box {
-            position: relative;
-            background: var(--card);
-            border: 1px solid var(--border-soft);
-            border-radius: 24px;
-            padding: 48px 44px;
-            max-width: 480px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
-            overflow: hidden;
-            animation: slideUp 0.6s cubic-bezier(0.4,0,0.2,1) forwards;
+            position: relative; background: var(--card); border: 1px solid var(--border-soft);
+            border-radius: 24px; padding: 48px 44px; max-width: 480px; width: 100%;
+            text-align: center; box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+            overflow: hidden; animation: slideUp 0.6s cubic-bezier(0.4,0,0.2,1) forwards;
         }
         .box::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
             background: linear-gradient(90deg, var(--blue), #60a5fa, var(--blue));
-            background-size: 200% 100%;
-            animation: shimmer 2s linear infinite;
+            background-size: 200% 100%; animation: shimmer 2s linear infinite;
         }
         @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-
         .doc-icon {
-            width: 80px; height: 80px;
-            background: rgba(59,130,246,0.1);
-            border: 2px solid rgba(59,130,246,0.3);
-            border-radius: 20px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 38px;
-            margin: 0 auto 24px;
-            animation: iconPop 0.5s 0.3s cubic-bezier(0.34,1.56,0.64,1) both;
+            width: 80px; height: 80px; background: rgba(59,130,246,0.1);
+            border: 2px solid rgba(59,130,246,0.3); border-radius: 20px;
+            display: flex; align-items: center; justify-content: center; font-size: 38px;
+            margin: 0 auto 24px; animation: iconPop 0.5s 0.3s cubic-bezier(0.34,1.56,0.64,1) both;
         }
         @keyframes iconPop { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
-
         .badge {
-            display: inline-block;
-            background: rgba(59,130,246,0.1);
-            border: 1px solid rgba(59,130,246,0.3);
-            color: #60a5fa;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 4px 14px;
-            border-radius: 50px;
-            margin-bottom: 16px;
+            display: inline-block; background: rgba(59,130,246,0.1);
+            border: 1px solid rgba(59,130,246,0.3); color: #60a5fa;
+            font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 50px; margin-bottom: 16px;
         }
         h1 { font-size: 24px; font-weight: 900; margin-bottom: 10px; line-height: 1.3; }
         .subtitle { font-size: 15px; color: var(--muted); margin-bottom: 36px; line-height: 1.7; }
-
         .ring-wrap { position: relative; width: 120px; height: 120px; margin: 0 auto 32px; }
         .ring-svg { transform: rotate(-90deg); width: 120px; height: 120px; }
         .ring-bg { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 6; }
@@ -133,15 +124,12 @@
         .ring-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
         .countdown-num { font-size: 38px; font-weight: 900; color: #60a5fa; line-height: 1; }
         .countdown-label { font-size: 11px; color: var(--muted); margin-top: 4px; }
-
         .progress-steps { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 30px; }
         .pstep { width: 8px; height: 8px; border-radius: 50%; background: var(--border-soft); transition: all 0.5s; }
         .pstep.active { width: 24px; border-radius: 4px; background: var(--blue); box-shadow: 0 0 10px rgba(59,130,246,0.4); }
         .pstep.done { background: var(--green); }
-
         .btn-dl {
-            display: none;
-            align-items: center; justify-content: center; gap: 12px;
+            display: none; align-items: center; justify-content: center; gap: 12px;
             width: 100%; padding: 17px 28px;
             background: linear-gradient(135deg, #2563eb, #60a5fa);
             color: white; text-decoration: none; border-radius: 14px;
@@ -152,7 +140,6 @@
         @keyframes btnAppear { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
         .btn-dl:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 16px 45px rgba(59,130,246,0.5); }
         .btn-dl svg { width: 22px; height: 22px; }
-
         .info-tags { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
         .itag {
             display: flex; align-items: center; gap: 5px;
@@ -162,6 +149,42 @@
         .itag span:first-child { font-size: 14px; }
         .note { margin-top: 24px; font-size: 12px; color: var(--muted); line-height: 1.7; padding: 14px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-soft); border-radius: 10px; }
         .note strong { color: #60a5fa; }
+
+        /* ══════════════════════════════════════════
+           أزرار المشاركة السريعة ✨
+           ══════════════════════════════════════════ */
+        .share-section {
+            margin-top: 20px; padding: 16px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-soft); border-radius: 12px;
+            display: none;
+        }
+        .share-section.visible { display: block; }
+        .share-section-title { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+        .share-row { display: flex; gap: 8px; }
+        .share-btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            gap: 6px; flex: 1; padding: 9px 12px; border-radius: 9px;
+            font-size: 13px; font-weight: 700; text-decoration: none;
+            transition: all 0.2s; font-family: 'Tajawal', sans-serif;
+        }
+        .share-wa { background: rgba(37,211,102,0.1); border: 1px solid rgba(37,211,102,0.25); color: #22c55e; }
+        .share-wa:hover { background: rgba(37,211,102,0.22); transform: translateY(-2px); }
+        .share-fb { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.25); color: #60a5fa; }
+        .share-fb:hover { background: rgba(59,130,246,0.22); transform: translateY(-2px); }
+
+        /* قسم التعليقات */
+        .comments-wrapper {
+            margin-top: 40px; width: 100%; max-width: 600px;
+            animation: slideUp 0.8s 0.6s backwards;
+        }
+        .comments-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+        .comments-header h3 { font-size: 18px; font-weight: 800; color: var(--text); }
+        .comments-header .c-badge {
+            background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3);
+            color: #60a5fa; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 50px;
+        }
+        .comments-box { background: var(--card); border: 1px solid var(--border-soft); border-radius: 20px; padding: 28px; overflow: hidden; }
     </style>
 </head>
 <body>
@@ -202,12 +225,39 @@
         <div id="frame" style="width: 300px; margin: 0 auto 24px auto; z-index: 99998; height: auto;">
             <iframe data-aa='2432008' src='//ad.a-ads.com/2432008/?size=300x250' style='border:0; padding:0; width:300px; height:250px; overflow:hidden; display: block; margin: auto;'></iframe>
         </div>
+
         <a id="download-btn" href="https://www.mediafire.com/file/07yxbcujwu26d4e/formal_request.docx/file" class="btn-dl">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
             اضغط هنا للتحميل الآن
         </a>
 
+        <!-- أزرار المشاركة السريعة ✨ -->
+        <div class="share-section" id="share-section">
+            <div class="share-section-title">📢 شارك النموذج مع أصدقائك</div>
+            <div class="share-row">
+                <a href="https://api.whatsapp.com/send?text=%D8%AD%D9%85%D9%91%D9%84%20%D9%86%D9%85%D9%88%D8%B0%D8%AC%20%D8%A7%D9%84%D9%85%D8%B9%D8%B1%D9%88%D8%B6%20%D8%A7%D9%84%D8%B1%D8%B3%D9%85%D9%8A%20%D9%85%D8%AC%D8%A7%D9%86%D8%A7%D9%8B%3A%20https%3A%2F%2Fthetemplatehub.com%2Fdownload-request.html" class="share-btn share-wa" target="_blank" rel="noopener">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    شارك واتساب
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fthetemplatehub.com%2Fdownload-request.html" class="share-btn share-fb" target="_blank" rel="noopener">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    شارك فيسبوك
+                </a>
+            </div>
+        </div>
+
         <div class="note"><strong>💡 نصيحة:</strong> هذا الوقت يساعدنا في الاستمرار بتقديم القوالب مجاناً. شكراً لصبرك ودعمك!</div>
+    </div>
+
+    <!-- قسم التعليقات ✨ -->
+    <div class="comments-wrapper">
+        <div class="comments-header">
+            <h3>💬 التعليقات والآراء</h3>
+            <span class="c-badge">اترك رأيك أو اطلب نموذج</span>
+        </div>
+        <div class="comments-box">
+            <div id="disqus_thread"></div>
+        </div>
     </div>
 
     <script>
@@ -217,6 +267,7 @@
         const ringFill = document.getElementById('ring-fill');
         const btn = document.getElementById('download-btn');
         const ringWrap = document.getElementById('ring-wrap');
+        const shareSection = document.getElementById('share-section');
         const CIRCUMFERENCE = 339.29;
 
         function updateRing(s) { ringFill.style.strokeDashoffset = CIRCUMFERENCE * (1 - s / TOTAL); }
@@ -233,6 +284,7 @@
                 ringWrap.style.display = 'none';
                 document.getElementById('steps').style.display = 'none';
                 btn.style.display = 'flex';
+                shareSection.classList.add('visible');
             }
         }, 1000);
     </script>
